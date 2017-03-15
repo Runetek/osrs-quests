@@ -1,6 +1,6 @@
 <template>
   <div v-if="quest" class="box" style="margin: 1rem">
-    <h3 class="title">{{ quest.name }}</h3>
+    <h3 class="title is-4">{{ quest.name }}</h3>
     <hr>
     <div class="columns has-text-left">
       <div class="column is-one-third" v-if="minSkills">
