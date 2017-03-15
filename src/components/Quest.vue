@@ -2,6 +2,9 @@
   <div v-if="quest" class="box" style="margin: 1rem">
     <h3 class="title is-4">{{ quest.name }}</h3>
     <hr>
+    <div v-if="hasNoReqs" class="content">
+      <p>This quest has no skill or quest requirements!</p>
+    </div>
     <div class="columns has-text-left">
       <div class="column is-one-third" v-if="minSkills">
         <h3 class="subtitle is-4">Skills</h3>
@@ -39,6 +42,9 @@ export default {
     }
   },
   computed: {
+    hasNoReqs () {
+      return isEmpty(this.minSkills) && this.preReqs.length === 0
+    },
     preReqs () {
       if (!this.quest) {
         return []
