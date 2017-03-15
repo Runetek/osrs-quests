@@ -1,13 +1,18 @@
 <template>
   <div class="columns">
     <div class="column is-half">
-      <p>
-        <h3 class="subtitle">Search</h3>
-        <quest-search v-model="search"/>
-      </p>
-      <p>
-        <quest :slug="slug" @nav="x => { selected = x }"/>
-      </p>
+      <div class="control is-horizontal">
+        <div class="control-label">
+          <label for="search" class="label">Search</label>
+        </div>
+        <div class="control">
+          <quest-search id="search" v-model="search"/>
+        </div>
+      </div>
+      <h3 class="title">
+        Selected Quest
+      </h3>
+      <quest :slug="slug" @nav="x => { selected = x }"/>
     </div>
     <div v-if="selected" class="column is-half">
       <quest :slug="selected" @nav="x => { selected = x }"/>
