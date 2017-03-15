@@ -2,15 +2,9 @@
   <div v-if="quest" class="box" style="margin: 1rem">
     <h3 class="title">{{ quest.name }}</h3>
     <hr>
-    <div class="columns">
-      <div class="column" v-if="skills">
+    <div class="columns has-text-left">
+      <div class="column is-one-third" v-if="minSkills">
         <h3 class="subtitle is-4">Skills</h3>
-        <li v-for="(level, skill) in skills">
-          {{ title(skill) }}: {{ level }}
-        </li>
-      </div>
-      <div class="column" v-if="minSkills">
-        <h3 class="subtitle is-4">Minimum Skills</h3>
         <li v-for="(level, skill) in minSkills">
           {{ title(skill) }}: {{ level }}
         </li>
