@@ -46,6 +46,10 @@ export const getBySlug = memoize(function (slug) {
   return Quests.find({ slug }).value()
 })
 
+export const getRandomQuest = function () {
+  return Quests.sample().value()
+}
+
 // export function traverse () {
 //   const G = new Graph()
 

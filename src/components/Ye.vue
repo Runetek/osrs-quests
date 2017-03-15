@@ -1,31 +1,18 @@
 <template>
-  <div class="container-fluid">
-    <div class="columns">
-      <div class="column is-half">
-        <quest-search v-model="selected"/>
-      </div>
-      <div class="column is-half" v-show="selected">
-        <h3 class="subtitle">
-          Selected Quest
-        </h3>
-        <quest :slug="selected"/>
-      </div>
-    </div>
-  </div>
+  <explorer :slug="random"/>
 </template>
 
 <script>
-import Quest from './Quest'
-import QuestSearch from './QuestSearch'
+import { getRandomQuest } from '@/api/quests'
+import Explorer from './Explorer'
 
 export default {
   components: {
-    Quest,
-    QuestSearch
+    Explorer
   },
   data () {
     return {
-      selected: ''
+      random: getRandomQuest().slug
     }
   }
 }

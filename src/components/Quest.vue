@@ -15,6 +15,7 @@
           <router-link :to="{ name: 'Quest', params: { slug: preReq.slug } }">
             {{ preReq.name }}
           </router-link>
+          (<a @click="$emit('nav', preReq.slug)">preview</a>)
         </li>
       </div>
     </div>

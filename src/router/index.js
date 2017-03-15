@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Explorer from '@/components/Explorer'
 import Ye from '@/components/Ye'
-import Quest from '@/components/Quest'
 
 Vue.use(Router)
 
@@ -9,13 +9,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Search',
+      name: 'Home',
       component: Ye
     },
     {
       path: '/quest/:slug',
       name: 'Quest',
-      component: Quest,
+      component: Explorer,
       props: true
     }
   ]
