@@ -1,6 +1,10 @@
 <template>
   <select class="input select">
-    <slot></slot>
+    <option
+      v-for="quest in quests"
+      :value="quest.slug"
+      v-text="quest.name"
+    ></option>
   </select>
 </template>
 
@@ -11,20 +15,25 @@ const $ = require('jquery')
 
 export default {
   props: ['value'],
+  data () {
+    return {
+      quests: Quests.map(x => ({
+        slug: x.slug,
+        name: x.name
+      })).value()
+    }
+  },
   mounted () {
     const $vm = this
     $(this.$el)
       .val(this.value)
-      .select2({
-        data: Quests.value().map(q => ({ id: q.slug, text: q.name }))
-      })
+      .select2()
       .on('change', function () {
         $vm.$emit('input', this.value)
       })
   },
   watch: {
     value (value) {
-      console.log(value)
       $(this.$el).val(value)
     }
   },
