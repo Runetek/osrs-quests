@@ -6,7 +6,7 @@
           <label for="search" class="label">Search</label>
         </div>
         <div class="control">
-          <quest-search id="search" v-model="search"/>
+          <quest-search id="search" @input="updateQuest"/>
         </div>
       </div>
       <h3 class="title">
@@ -41,6 +41,14 @@ export default {
     return {
       search: this.slug,
       selected: ''
+    }
+  },
+  methods: {
+    updateQuest (slug) {
+      this.$router.push({
+        name: 'Quest',
+        params: { slug }
+      })
     }
   }
 }
