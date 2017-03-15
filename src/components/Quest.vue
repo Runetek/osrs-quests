@@ -49,7 +49,7 @@ export default {
     },
     minSkills () {
       if (!this.quest) {
-        return {}
+        return false
       }
 
       const seen = new Set()
