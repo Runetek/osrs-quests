@@ -50,6 +50,11 @@ export default {
         params: { slug }
       })
     }
+  },
+  watch: {
+    '$route' () {
+      this.selected = ''
+    }
   }
 }
 </script>
