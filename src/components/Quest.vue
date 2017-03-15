@@ -72,10 +72,6 @@ export default {
       }
 
       return isEmpty(reqs) ? false : reqs
-    },
-    skills () {
-      const reqs = this.quest.reqs.skills || {}
-      return isEmpty(reqs) ? false : reqs
     }
   },
   methods: {
